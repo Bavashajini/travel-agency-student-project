@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Serendib Coast Travels – Explore all 25 districts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+  <a class="logo" href="#top">Serendib Coast</a>
+  <nav>
+    <a href="#districts">Districts</a>
+    <a href="#partners">Taxi &amp; Hotels</a>
+    <button class="btn small" id="openLogin">Login</button>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-text">
+    <h1>Find your way around every district of the island</h1>
+    <p>Pick a district to discover its most precious place, then see how to get there by train, bus, taxi or tuk-tuk. Book trusted local taxis and hotels in one place.</p>
+    <a href="#districts" class="btn">Browse 25 districts</a>
+  </div>
+  <svg class="waves" viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true">
+    <path class="w1" d="M0,80 C240,150 480,10 720,80 C960,150 1200,10 1440,80 L1440,160 L0,160Z"/>
+    <path class="w2" d="M0,110 C240,40 480,150 720,100 C960,50 1200,140 1440,100 L1440,160 L0,160Z"/>
+  </svg>
+</section>
+
+<main>
+  <section id="districts" class="wrap">
+    <h2>The 25 districts</h2>
+    <input type="search" id="search" placeholder="Search a district…" aria-label="Search districts">
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section id="partners" class="wrap partners">
+    <h2>Local taxi owners and hotel managers</h2>
+    <p>Run a taxi or a hotel? Log in to list your service so travellers can call you directly.</p>
+    <div class="pcards">
+      <div class="pcard"><h3>Call a taxi</h3><p>Customers can phone verified taxi owners in each district.</p><button class="btn small" data-role="taxi">Taxi owner login</button></div>
+      <div class="pcard"><h3>Book a hotel</h3><p>Hotel managers keep rooms, rates and contact numbers up to date.</p><button class="btn small" data-role="hotel">Hotel manager login</button></div>
+    </div>
+  </section>
+</main>
+
+<footer>© 2026 Serendib Coast Travels · Student project</footer>
+
+<!-- District pop-up -->
+<div class="modal" id="placeModal" hidden>
+  <div class="box" role="dialog" aria-modal="true" aria-labelledby="pmTitle">
+    <button class="x" data-close aria-label="Close">×</button>
+    <h3 id="pmTitle"></h3><p class="sub" id="pmDistrict"></p><p id="pmDesc"></p>
+  </div>
+</div>
+
+<!-- Transport pop-up -->
+<div class="modal" id="transModal" hidden>
+  <div class="box" role="dialog" aria-modal="true" aria-labelledby="tmTitle">
+    <button class="x" data-close aria-label="Close">×</button>
+    <h3 id="tmTitle"></h3><p class="sub">Transport facilities</p>
+    <ul class="tlist" id="tmList"></ul>
+  </div>
+</div>
+
+<!-- Login pop-up -->
+<div class="modal" id="loginModal" hidden>
+  <div class="box" role="dialog" aria-modal="true" aria-labelledby="lmTitle">
+    <button class="x" data-close aria-label="Close">×</button>
+    <h3 id="lmTitle">Login</h3>
+    <div class="tabs" id="tabs">
+      <button class="on" data-role="customer">Customer</button>
+      <button data-role="taxi">Taxi owner</button>
+      <button data-role="hotel">Hotel manager</button>
+    </div>
+    <form id="loginForm">
+      <label>Email<input type="email" required id="email" autocomplete="email"></label>
+      <label>Password<input type="password" required minlength="6" id="pass" autocomplete="current-password"></label>
+      <button class="btn" type="submit">Login as <span id="roleName">customer</span></button>
+      <p class="msg" id="msg" role="status"></p>
+    </form>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
